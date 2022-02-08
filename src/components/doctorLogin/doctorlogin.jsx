@@ -10,6 +10,9 @@ export default function DoctorLogin(){
     }
 
     async function getUser(){
+        if(user.length<=3){
+            return
+        }
         let data = await axios.get(`http://localhost:3001/doctor/email/${user}`)
         if(data.status>=200&&data.status<=300){
         localStorage.setItem("docInfo",JSON.stringify(data.data))
