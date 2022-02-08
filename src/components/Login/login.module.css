@@ -1,0 +1,18 @@
+.main{
+    display: flex;
+    flex-direction: column;
+    width:30%;
+    margin: auto;
+    height:200px;
+    justify-content: space-evenly;
+}
+.main>input{
+    margin-top: 2%;
+}
+.main>label{
+    margin-top: 2%;
+}
+.main>button{
+    width:40%;
+    margin: auto;
+}

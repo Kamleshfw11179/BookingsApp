@@ -1,0 +1,17 @@
+.main{
+    margin: auto;
+    width:70%;
+    text-align: left;
+}
+
+.main>h5{
+    text-decoration: underline;
+}
+
+.patientInfo{
+    display: flex;
+    flex-direction: row;
+    width:100%;
+    justify-content: space-between;
+    text-align: left;
+}

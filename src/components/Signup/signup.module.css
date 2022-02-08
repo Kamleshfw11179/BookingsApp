@@ -1,0 +1,19 @@
+.main{
+    display: flex;
+    flex-direction: column;
+    width:30%;
+    margin: auto;
+    justify-content: space-evenly;
+    height:300px
+}
+.main>input{
+    margin-top: 2%;
+}
+.main>label{
+    margin-top: 2%;
+}
+.main>button{
+    width:40%;
+    margin: auto;
+    margin-top: 10%;
+}
