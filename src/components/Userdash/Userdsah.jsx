@@ -28,10 +28,10 @@ export default function Userdash(){
         {user.appointments.length==0?<p>No Appointments</p>:<div>{user.appointments.map((e)=>{
             return(
             <div className={styles.patientInfo} key={Math.random()*100000}>
-            <h3>{e.name}</h3>
-            <p>{e.age}</p>
-            <p>{e.gemder}</p>
-            <p>{e.reason}</p>
+            <h3>Name: {e.name}</h3>
+            <p>Age: {e.age}</p>
+            <p>Gender: {e.gender}</p>
+            <p>Reason: {e.reason}</p>
             </div>)
         })}</div>}
         <Link to="/"><p>Book Again</p></Link>
