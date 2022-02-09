@@ -9,8 +9,9 @@ export default function Nav(){
     }
     return(
         <div className={styles.main}>
+        <h1>Apollo Hosiptals</h1>
             <div className={styles.main1}>
-            <Link to="/userProfile">Profile</Link>
+            <Link className={styles.link} to="/userProfile">Profile</Link>
             <button onClick={handleLogout}>Logout</button>
             </div>
         </div>

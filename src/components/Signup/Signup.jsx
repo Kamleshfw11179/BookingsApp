@@ -1,3 +1,8 @@
+import TextField from '@mui/material/TextField';
+import Avatar from '@mui/material/Avatar';
+import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
+import Container from '@mui/material/Container';
+import Button from '@mui/material/Button'
 import styles from "./signup.module.css"
 import { useState } from "react"
 import axios from "axios"
@@ -24,14 +29,43 @@ export default function SignUp({setState}){
         }
     }
     return(
-        <div className={styles.main}>
-            <label>User Name</label>
-            <input type="text" value={user.name} name="name" onChange = {handleChange} placeholder="User Name"></input>
-            <label>Email</label>
-            <input type="text" value = {user.email}  name = "email" onChange = {handleChange} placeholder = "User Email"></input>
-            <label>User Password</label>
-            <input type="password" value = {user.password}  name = "password" onChange = {handleChange} placeholder = "User Password"></input>
-            <button onClick={AddUser}>Signup</button>
-        </div>
+        <>
+         <Avatar sx={{ m: 1, bgcolor: 'secondary.main', margin:"auto",marginTop:"15px" }}>
+            <LockOutlinedIcon />
+          </Avatar>
+          <Container maxWidth="xs" sx={{margin:"auto",marginTop:"20px",display:"flex", flexDirection:"column"}}>
+            <TextField 
+              required
+              fullWidth
+              label="User Name"
+              id="name"
+              autoComplete="current-name" 
+              type="text"
+              value={user.name} 
+              name="name" 
+              onChange = {handleChange}
+              sx={{marginTop:"20px"}} 
+              placeholder="User Name">
+              </TextField>
+            <TextField 
+              required
+              fullWidth
+              label="User Email"
+              id="email"
+              sx={{marginTop:"20px"}} 
+              autoComplete="current-name"  type="text" value = {user.email}  name = "email" onChange = {handleChange} placeholder = "User Email"></TextField>
+            <TextField  
+            required
+            fullWidth
+            label="User Password"
+            id="email"
+            sx={{marginTop:"20px"}} 
+            type="password" value = {user.password}  name = "password" onChange = {handleChange} placeholder = "User Password"></TextField>
+            <Button fullWidth
+              variant="contained"
+              sx={{ mt: 3, mb: 2 }}
+              onClick={AddUser}>Signup</Button>
+        </Container>
+        </>
     )
 }

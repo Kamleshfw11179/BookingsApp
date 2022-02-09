@@ -13,5 +13,52 @@
     flex-direction: row;
     width:100%;
     justify-content: space-between;
-    text-align: left;
+    align-items: center;
+    background-color: #2596be;
+    padding: 0 4% 0 4%;
+    border-radius: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.logo{
+    display: flex;
+    flex-direction: row;
+    height:70px;
+}
+.logo>h1{
+    margin-left: 18%;
+    font-weight: 400;
+    color:#2596be;
+    
+}
+.logo>img{
+    width:90px;
+    margin-left: 10%;
+}
+
+.info{
+    margin-top: 50px;
+}
+.info>h2{
+    margin-top: -15px;
+}
+
+.appoint{
+    text-decoration: none;
+    font-weight: 400;
+    font-size: 20px;
+    text-decoration: underline;
+}
+
+.appointments{
+    width:100%;
+    text-align: center;
+}
+.appointments>h3{
+    color: #ffff;
+    text-decoration: underline;
+}
+.appointments>p{
+    font-weight: 500;
 }

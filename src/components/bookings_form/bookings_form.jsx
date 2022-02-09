@@ -58,6 +58,11 @@ export default function Bookings_Form(){
         <>
         <Nav />
         <div className={styles.main}>
+        <div className={styles.logo}>
+        <img src="https://cdn.apollohospitals.com/dev-apollohospitals/2021/06/AH_logo_v-60c8405cbca3d.svg"></img>
+            <h1>Apollo Hospitals.</h1>
+            </div>
+            <hr/>
         <h2>Please Enter Booking Details</h2>
         </div>
         <div className={styles.form}>
@@ -68,7 +73,7 @@ export default function Bookings_Form(){
             <label>Gender of Patient</label>
             <input type="text"  value={patient.gender} name="gender" placeholder="Gender" onChange={handleChange}></input>
             <label>What is the reason for visit.</label>
-            <input type="text"  value={patient.reason} name="reason" placeholder="Reason" onChange={handleChange}></input>
+            <input style={{marginTop:"60px"}} type="text"  value={patient.reason} name="reason" placeholder="Reason" onChange={handleChange}></input>
             <button onClick={handleAddData}>Submit</button>
         </div>
         </>

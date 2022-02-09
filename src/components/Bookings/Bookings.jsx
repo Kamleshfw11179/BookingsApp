@@ -33,10 +33,13 @@ export default function Booking({time,setTime}){
     <>
     <Nav />
         <div className={styles.main}>
-            <h1>Bookings Page</h1>
-            <h3>Welcome to Apollo Hospitals.</h3>
-            <p>Please Select the speciality.</p>
-            <select onChange={handleChange}>
+        <div className={styles.logo}>
+        <img src="https://cdn.apollohospitals.com/dev-apollohospitals/2021/06/AH_logo_v-60c8405cbca3d.svg"></img>
+            <h1>Welcome to Apollo Hospitals.</h1>
+            </div>
+            <hr/>
+            <p className={styles.sphead}>Please Select the speciality to book an Appointment.</p>
+            <select className={styles.select} onChange={handleChange}>
                 <option value=""></option>
                 <option value="Cardiologist">Cardiologist</option>
                 <option value="Dermatology">Dermatology</option>
@@ -46,32 +49,62 @@ export default function Booking({time,setTime}){
                 <option value="Pediatrics">Pediatrics</option>
                 <option value="Urology">Urology</option>
             </select>
-            {state==""? <h3>Please Select speciality</h3>:<h3>{state} Doctors Availables</h3>}
+            {state==""? <h3></h3>:<p style={{color:"black",fontSize:"20px",fontWeight:"400"}}>{state} Doctors Availables</p>}
             <div>{docs.map((e)=>{
                 if(e.visitingTimetill<e.visitingTimefrom){
                     return(
                     <div key={e.email} className={styles.list}>
-                        <p>Name: {e.name}</p>
-                        <p>Speciality: {e.speciality}</p>
-                        <p>Visiting Time: {e.visitingTimefrom>12?e.visitingTimefrom-12+"P.M":e.visitingTimefrom+"A.M"}</p>
-                        <p>Visiting Time Till: {e.visitingTimetill>12?e.visitingTimetill-12+"P.M":e.visitingTimetill+"A.M"}</p>
-                        <p>Total Patients: {e.patients.length}</p>
+                    <div>
+                        <h4>Name</h4>
+                        <p>{e.name}</p>
+                    </div>
+                    <div>
+                        <h4>Speciality</h4>
+                        <p>{e.speciality}</p>
+                    </div>
+                    <div>
+                        <h4>Visiting Time From</h4>
+                        <p>{e.visitingTimefrom>12?e.visitingTimefrom-12+"P.M":e.visitingTimefrom+"A.M"}</p>
+                    </div>
+                    <div>
+                        <h4>Visiting Time Till</h4>
+                        <p>{e.visitingTimetill>12?e.visitingTimetill-12+"P.M":e.visitingTimetill+"A.M"}</p>
+                    </div>
+                    <div>
+                        <h4>Total Patients</h4>
+                        <p>{e.patients.length}</p>
+                    </div>
                         {Math.ceil((((e.visitingTimetill+24)-e.visitingTimefrom)*60)/20)>=e.patients.length?
-                        <Link to={`/book/${e._id}`}><button onClick={()=>{setShow(!show)}}>Book</button></Link>
-                        :<button disabled>Bookings Full</button>}
+                        <Link to={`/book/${e._id}`}><button className={styles.book} onClick={()=>{setShow(!show)}}>Book</button></Link>
+                        :<button className={styles.bookd} disabled>Bookings Full</button>}
                     </div>
                 )
                 }else{
                     return(
                     <div key={e.email} className={styles.list}>
-                        <p>Name: {e.name}</p>
-                        <p>Speciality: {e.speciality}</p>
-                        <p>Visiting Time: {e.visitingTimefrom>12?e.visitingTimefrom-12+"P.M":e.visitingTimefrom+"A.M"}</p>
-                        <p>Visiting Time Till: {e.visitingTimetill>12?e.visitingTimetill-12+"P.M":e.visitingTimetill+"A.M"}</p>
-                        <p>Total Patients: {e.patients.length}</p>
+                    <div>
+                        <h4>Name</h4>
+                        <p>{e.name}</p>
+                    </div>
+                    <div>
+                        <h4>Speciality</h4>
+                        <p>{e.speciality}</p>
+                    </div>
+                    <div>
+                        <h4>Visiting Time From</h4>
+                        <p>{e.visitingTimefrom>12?e.visitingTimefrom-12+"P.M":e.visitingTimefrom+"A.M"}</p>
+                    </div>
+                    <div>
+                        <h4>Visiting Time Till</h4>
+                        <p>{e.visitingTimetill>12?e.visitingTimetill-12+"P.M":e.visitingTimetill+"A.M"}</p>
+                    </div>
+                    <div>
+                        <h4>Total Patients</h4>
+                        <p>{e.patients.length}</p>
+                    </div>
                         {Math.ceil(((e.visitingTimetill-e.visitingTimefrom)*60)/20)>=e.patients.length?
-                        <Link to={`/book/${e._id}`}><button onClick={()=>{setShow(!show)}}>Book</button></Link>
-                        :<button disabled>Bookings Full</button>}
+                        <Link to={`/book/${e._id}`}><button className={styles.book} onClick={()=>{setShow(!show)}}>Book</button></Link>
+                        :<button className={styles.bookd} disabled>Bookings Full</button>}
                     </div>
                 )
                 }

@@ -1,8 +1,13 @@
+import TextField from '@mui/material/TextField';
+import Avatar from '@mui/material/Avatar';
+import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
+import Container from '@mui/material/Container';
+import Button from '@mui/material/Button'
 import {useState} from "react"
-import styles from "./login.module.css"
 import axios from "axios"
 import { useNavigate } from "react-router"
 import { Link } from "react-router-dom"
+import styles from "./login.module.css"
 export default function Login(){
     const navigate = useNavigate()
     const [user,setUser] = useState({
@@ -25,13 +30,42 @@ export default function Login(){
         }
     }
     return(
-        <div className={styles.main}>
-            <label>User Email</label>
-            <input type="text" value={user.name} name = "name" onChange = {handleChange} placeholder="User Email"></input>
-            <label>User Password</label>
-            <input type="password" value = {user.password}  name = "password" onChange = {handleChange} placeholder = "User Password"></input>
-            <button onClick={handleLogin}>Login</button>
-            <Link to="/doclogin">Admin Login</Link>
-        </div>
+    <>
+     <Avatar sx={{ m: 1, bgcolor: 'secondary.main', margin:"auto",marginTop:"15px" }}>
+            <LockOutlinedIcon />
+          </Avatar>
+        <Container maxWidth="xs" sx={{margin:"auto",marginTop:"20px"}}>
+            <TextField 
+              required
+              fullWidth
+              name="name"
+              label="User Email"
+              type="text"
+              id="name"
+              autoComplete="current-password"  
+              value={user.name}  
+              onChange = {handleChange}>
+            </TextField>
+            <TextField margin="normal"
+              required
+              fullWidth
+              name="password"
+              label="Password"
+              type="password"
+              id="password"
+              autoComplete="current-password" 
+              value = {user.password}
+              onChange = {handleChange}>
+            </TextField>
+            <Button 
+              fullWidth
+              variant="contained"
+              sx={{ mt: 3, mb: 2 }} 
+              onClick={handleLogin}>
+              Login
+              </Button>
+            <Link className={styles.link} to="/doclogin">Admin Login</Link>
+        </Container>
+        </>
     )
 }

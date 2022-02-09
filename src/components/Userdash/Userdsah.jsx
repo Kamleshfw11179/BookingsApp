@@ -21,20 +21,39 @@ export default function Userdash(){
     return(
         <>
         <Nav />
+        <div className={styles.logo}>
+        <img src="https://cdn.apollohospitals.com/dev-apollohospitals/2021/06/AH_logo_v-60c8405cbca3d.svg"></img>
+            <h1>Welcome to Apollo Hospitals.</h1>
+            </div>
+            <hr />
         <div className={styles.main}>
-        <h3>{user.name}</h3>
-        <p>{user.email}</p>
-        <h5>Appointments</h5>
+        <div className={styles.info}>
+            <h3>Hello</h3>
+            <h2>{user.name}</h2>
+        </div>
+        <h4 className={styles.appoint}>Your Appointments</h4>
         {user.appointments.length==0?<p>No Appointments</p>:<div>{user.appointments.map((e)=>{
             return(
             <div className={styles.patientInfo} key={Math.random()*100000}>
-            <h3>Name: {e.name}</h3>
-            <p>Age: {e.age}</p>
-            <p>Gender: {e.gender}</p>
-            <p>Reason: {e.reason}</p>
+            <div className={styles.appointments}>
+                <h3>Name: </h3>
+                <p>{e.name}</p>
+            </div>
+            <div  className={styles.appointments}>
+                <h3>Age</h3>
+                <p>{e.age}</p>
+            </div>
+            <div  className={styles.appointments}>
+                <h3>Gender</h3>
+                <p>{e.gender}</p>
+            </div>
+            <div  className={styles.appointments}>
+                <h3>Reason</h3>
+                <p>{e.reason}</p>
+            </div>
             </div>)
         })}</div>}
-        <Link to="/"><p>Book Again</p></Link>
+        <Link to="/"   style={{color:"#2596be",textDecoration:"none",fontSize:"20px"}} ><p>Book Again</p></Link>
         </div>
         </>
     )

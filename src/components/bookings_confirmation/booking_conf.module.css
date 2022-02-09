@@ -1,4 +1,41 @@
 .main{
     text-align: center;
-    margin-top: 250px;
+    margin-top: 40px;
+}
+.head{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: -7px;
+    margin-bottom: -15px;
+}
+.head>img{
+    width:7%;
+    margin-left: 10%;
+}
+.head>h2{
+    margin-right: 41%;
+    font-size: 30px;
+    color:#2596be;
+}
+
+.guidelines{
+    width:30%;
+    margin: auto;
+    background-color: #2596be;
+    border-radius: 10px;
+    color:white;
+    height:200px;
+    padding-top: 30px;
+    margin-bottom: 30px;
+}
+.guidelines>ul{
+    width:80%;
+    margin: auto;
+    text-align: left;
+}
+.link{
+    font-size: 20px;
+    text-decoration: none;
+    color: #2596be;
 }
